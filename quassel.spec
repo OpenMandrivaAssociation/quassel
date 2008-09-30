@@ -6,7 +6,7 @@ Group: Networking/IRC
 License: GPLv3
 URL: http://quassel-irc.org/
 Summary: A modern, cross-platform, distributed IRC client
-BuildRequires: qt4-devel qt4-linguist
+BuildRequires: qt4-devel qt4-linguist cmake
 BuildRoot: %{_tmppath}/%{name}-root
 
 %description
