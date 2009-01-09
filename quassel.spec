@@ -1,7 +1,7 @@
 Name: quassel
-Version: 0.3.0.1
+Version: 0.3.1
 Release: %mkrel 1
-Source: http://quassel-irc.org/pub/quassel-0.3.0.1.tar.bz2
+Source: http://quassel-irc.org/pub/quassel-%{version}.tar.bz2
 Group: Networking/IRC
 License: GPLv3
 URL: http://quassel-irc.org/
@@ -38,4 +38,6 @@ rm -Rf %{buildroot}
 %defattr(-,root,root)
 %{_bindir}/*
 %{_datadir}/applications/*.desktop
+%{_datadir}/icons/hicolor/48x48/apps/%{name}.png
+%{_datadir}/pixmaps/%{name}.png
 %doc AUTHORS ChangeLog README
