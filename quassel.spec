@@ -1,7 +1,8 @@
 Name: quassel
 Version: 0.3.1
-Release: %mkrel 1
+Release: %mkrel 2
 Source: http://quassel-irc.org/pub/quassel-%{version}.tar.bz2
+Patch0:         quassel-0.3.1-fix-string-error.patch
 Group: Networking/IRC
 License: GPLv3
 URL: http://quassel-irc.org/
@@ -21,6 +22,7 @@ available.
 
 %prep
 %setup -q
+%patch0 -p1
 
 %build
 
