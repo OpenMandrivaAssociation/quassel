@@ -1,13 +1,18 @@
+# Tarball from Git daily
+%define git_day 20090128
+
 Name: quassel
-Version: 0.3.1
+Version: 0.3.1.%{git_day}
 Release: %mkrel 2
 Source: http://quassel-irc.org/pub/quassel-%{version}.tar.bz2
-Patch0:         quassel-0.3.1-fix-string-error.patch
 Group: Networking/IRC
 License: GPLv3
 URL: http://quassel-irc.org/
 Summary: A modern, cross-platform, distributed IRC client
-BuildRequires: qt4-devel qt4-linguist cmake
+BuildRequires: qt4-devel 
+BuildRequires: qt4-linguist 
+BuildRequires: cmake
+BuildRequires: kdelibs4-devel
 BuildRoot: %{_tmppath}/%{name}-root
 
 %description
@@ -21,17 +26,18 @@ making communication with your peers not only convenient, but also ubiquitous
 available.
 
 %prep
-%setup -q
-%patch0 -p1
+%setup -q -n quassel
 
 %build
-
-cmake -D CMAKE_INSTALL_PREFIX=%{_prefix} .
+%cmake_kde4 \
+    -DWANT_MONO=ON \
+    -DWITH_KDE=ON \
+    -DEMBED_DATA=OFF
 %make
 
 %install
 rm -Rf %{buildroot}
-%makeinstall_std
+%makeinstall_std -C build
 
 %clean
 rm -Rf %{buildroot}
@@ -39,7 +45,8 @@ rm -Rf %{buildroot}
 %files
 %defattr(-,root,root)
 %{_bindir}/*
-%{_datadir}/applications/*.desktop
 %{_datadir}/icons/hicolor/48x48/apps/%{name}.png
 %{_datadir}/pixmaps/%{name}.png
+%{_kde_appsdir}/quassel
+%{_kde_applicationsdir}/*
 %doc AUTHORS ChangeLog README
