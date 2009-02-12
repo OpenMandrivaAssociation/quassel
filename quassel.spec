@@ -1,9 +1,9 @@
 # Tarball from Git daily
-%define git_day 20090128
+%define git_day 20090212
 
 Name: quassel
 Version: 0.3.1.%{git_day}
-Release: %mkrel 5
+Release: %mkrel 1
 Summary: A modern, cross-platform, distributed IRC client - This is the monolithic client
 Source0: http://quassel-irc.org/pub/quassel-%{version}.tar.bz2
 Source1: networks.ini
