@@ -1,15 +1,13 @@
 Name: quassel
-Version: 0.4.1
-Release: %mkrel 3
+Version: 0.4.2
+Release: %mkrel 1
 Summary: A modern, cross-platform, distributed IRC client - This is the monolithic client
 Source0: http://quassel-irc.org/pub/quassel-%{version}.tar.bz2
 Source1: networks.ini
 Group: Networking/IRC
 License: GPLv3
 URL: http://quassel-irc.org/
-BuildRequires: qt4-devel 
 BuildRequires: qt4-linguist 
-BuildRequires: cmake
 BuildRequires: kdelibs4-devel
 Requires: quassel-common = %version
 BuildRoot: %{_tmppath}/%{name}-root
