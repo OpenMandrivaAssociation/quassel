@@ -1,6 +1,6 @@
 Name: quassel
 Version: 0.5
-Release: %mkrel 0.rc1.1
+Release: %mkrel 0.rc1.2
 Summary: A modern, cross-platform, distributed IRC client - This is the monolithic client
 Source0: http://quassel-irc.org/pub/quassel-%{version}-rc1.tar.bz2
 Source1: networks.ini
@@ -11,6 +11,7 @@ BuildRequires: qt4-linguist
 BuildRequires: kdelibs4-devel
 Requires: quassel-common = %version
 BuildRoot: %{_tmppath}/%{name}-root
+Provides: kde4-irc-client
 
 %description
 Quassel IRC is a modern, cross-platform, distributed IRC client, meaning that
