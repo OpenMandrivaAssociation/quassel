@@ -1,8 +1,8 @@
 Name: quassel
-Version: 0.5
-Release: %mkrel 0.rc1.3
+Version: 0.5.0
+Release: %mkrel 1
 Summary: A modern, cross-platform, distributed IRC client - This is the monolithic client
-Source0: http://quassel-irc.org/pub/quassel-%{version}-rc1.tar.bz2
+Source0: http://quassel-irc.org/pub/quassel-%{version}.tar.bz2
 Source1: networks.ini
 Group: Networking/IRC
 License: GPLv3
@@ -78,7 +78,7 @@ A modern, cross-platform, distributed IRC client - This is quassel core server f
 #-------------------------------------------------------------------------------
 
 %prep
-%setup -q -n %{name}-%{version}-rc1
+%setup -q -n %{name}-%{version}
 
 %build
 %cmake_kde4 \
