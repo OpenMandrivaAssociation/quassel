@@ -1,17 +1,17 @@
-Name: quassel
-Version: 0.5.0
-Release: %mkrel 1
-Summary: A modern, cross-platform, distributed IRC client - This is the monolithic client
-Source0: http://quassel-irc.org/pub/quassel-%{version}.tar.bz2
-Source1: networks.ini
-Group: Networking/IRC
-License: GPLv3
-URL: http://quassel-irc.org/
-BuildRequires: qt4-linguist 
-BuildRequires: kdelibs4-devel
-Requires: quassel-common = %version
-BuildRoot: %{_tmppath}/%{name}-root
-Provides: kde4-irc-client
+Name:		quassel
+Version: 	0.5.1
+Release: 	%mkrel 1
+Summary: 	A modern, cross-platform, distributed IRC client - This is the monolithic client
+Source0: 	http://quassel-irc.org/pub/quassel-%{version}.tar.bz2
+Source1: 	networks.ini
+Group: 		Networking/IRC
+License: 	GPLv3
+URL: 		http://quassel-irc.org/
+BuildRequires: 	qt4-linguist 
+BuildRequires: 	kdelibs4-devel
+Requires: 	quassel-common = %version
+BuildRoot: 	%{_tmppath}/%{name}-root
+Provides: 	kde4-irc-client
 
 %description
 Quassel IRC is a modern, cross-platform, distributed IRC client, meaning that
@@ -88,7 +88,7 @@ A modern, cross-platform, distributed IRC client - This is quassel core server f
 %make
 
 %install
-rm -Rf %{buildroot}
+rm -rf %{buildroot}
 %makeinstall_std -C build
 
 # Our own defined networks
@@ -96,5 +96,4 @@ rm -f %buildroot/%_datadir/apps/quassel/networks.ini
 install -m 644 %{SOURCE1} %buildroot/%_datadir/apps/quassel/
 
 %clean
-rm -Rf %{buildroot}
-
+rm -rf %{buildroot}
