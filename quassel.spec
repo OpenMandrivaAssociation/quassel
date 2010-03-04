@@ -1,4 +1,4 @@
-%define prerel beta1
+%define prerel rc1
 
 Name:		quassel
 Version: 	0.6
