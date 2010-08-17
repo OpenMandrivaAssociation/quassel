@@ -1,13 +1,15 @@
+%define prerel beta1
+
 Name:		quassel
-Version: 	0.6.1
-Release: 	%mkrel 1
+Version: 	0.7
+Release: 	%mkrel -c %prerel 1
 Summary: 	A modern, cross-platform, distributed IRC client - This is the monolithic client
-Source0: 	http://quassel-irc.org/pub/quassel-%{version}.tar.bz2
+Source0: 	http://quassel-irc.org/pub/quassel-%{version}-%prerel.tar.bz2
 Source1: 	networks.ini
 Group: 		Networking/IRC
 License: 	GPLv3
 URL: 		http://quassel-irc.org/
-BuildRequires: 	qt4-linguist 
+BuildRequires: 	qt4-linguist >= 4:4.6.0
 BuildRequires: 	kdelibs4-devel
 Requires: 	quassel-common = %version
 BuildRoot: 	%{_tmppath}/%{name}-root
@@ -78,7 +80,7 @@ A modern, cross-platform, distributed IRC client - This is quassel core server f
 #-------------------------------------------------------------------------------
 
 %prep
-%setup -q -n %{name}-%{version}
+%setup -q -n %{name}-%{version}-%prerel
 
 %build
 %cmake_kde4 \
