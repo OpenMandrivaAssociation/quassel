@@ -1,43 +1,45 @@
-Name:		quassel
-Version: 	0.7.3
-Release: 	%mkrel 1
-Summary: 	A modern, cross-platform, distributed IRC client - This is the monolithic client
-Source0: 	http://quassel-irc.org/pub/quassel-%{version}.tar.bz2
-Source1: 	networks.ini
-Group: 		Networking/IRC
-License: 	GPLv3
-URL: 		http://quassel-irc.org/
-BuildRequires: 	qt4-linguist >= 4:4.6.0
-BuildRequires: 	kdelibs4-devel
-Requires: 	quassel-common = %version
-BuildRoot: 	%{_tmppath}/%{name}-root
-Provides: 	kde4-irc-client
+Name:       quassel
+Version:    0.7.3
+Release:    2
+Summary:    A modern cross-platform distributed IRC client (monolythic)
+Source0:    http://quassel-irc.org/pub/quassel-%{version}.tar.bz2
+Source1:    networks.ini
+Group:      Networking/IRC
+License:    GPLv3
+URL:        http://quassel-irc.org/
+BuildRequires:  qt4-linguist >= 4:4.6.0
+BuildRequires:  kdelibs4-devel
+Requires:   quassel-common = %version
+BuildRoot:  %{_tmppath}/%{name}-root
+Provides:   kde4-irc-client
 
 %description
-Quassel IRC is a modern, cross-platform, distributed IRC client, meaning that
-one (or multiple) client(s) can attach to and detach from a central core --
-much like the popular combination of screen and a text-based IRC client such as
-WeeChat, but graphical. In addition to this uniqe feature, we aim to bring a
-pleasurable, comfortable chatting experience to all major platforms (including
-Linux®, Windows®, and MacOS X® as well as Qtopia-based cell phones and PDAs),
-making communication with your peers not only convenient, but also ubiquitous
-available.
+Quassel IRC is a modern, cross-platform, distributed IRC client,
+meaning that one (or multiple) client(s) can attach to and detach
+from a central core -- much like the popular combination of screen
+and a text-based IRC client such as WeeChat, but graphical. In
+addition to this unique feature, we aim to bring a pleasurable,
+comfortable chatting experience to all major platforms (including
+Linux®, Windows®, and MacOS X® as well as Qtopia-based cell phones
+and PDAs), making communication with your peers not only convenient,
+but also ubiquitous available.
 
 %files
 %defattr(-,root,root)
 %{_bindir}/quassel
 %{_kde_applicationsdir}/quassel.desktop
 
-#-------------------------------------------------------------------------------
+#-----------------------------------------------------------------------
 
 %package common
 Group: Networking/IRC
-Summary: A modern, cross-platform, distributed IRC client - Common files
+Summary: A modern cross-platform distributed IRC client - Common files
 Requires: qt4-database-plugin-sqlite
 Conflicts: quassel < 0.3.1.20090128-4
 
 %description common
-A modern, cross-platform, distributed IRC client - This is client only, depends on a core server.
+A modern, cross-platform, distributed IRC client
+- This is client only, depends on a core server.
 
 %files common
 %defattr(-,root,root)
@@ -46,36 +48,37 @@ A modern, cross-platform, distributed IRC client - This is client only, depends 
 %{_kde_appsdir}/quassel
 %doc AUTHORS ChangeLog README
 
-#-------------------------------------------------------------------------------
+#-----------------------------------------------------------------------
 
 %package client
 Group: Networking/IRC
-Summary: A modern, cross-platform, distributed IRC client - This is client only, depends on a core server
+Summary: A modern cross-platform distributed IRC client - Client only
 Requires: quassel-common = %version
 
 %description client
-A modern, cross-platform, distributed IRC client - This is client only, depends on a core server.
+A modern, cross-platform, distributed IRC client - Client only
 
 %files client
 %defattr(-,root,root)
 %{_bindir}/quasselclient
 %{_kde_applicationsdir}/quasselclient.desktop
 
-#-------------------------------------------------------------------------------
+#-----------------------------------------------------------------------
 
 %package core
 Group: Networking/IRC
-Summary: A modern, cross-platform, distributed IRC client - This is quassel core server for clients
+Summary: A modern cross-platform distributed IRC client - Core server
 Requires: quassel-common = %version
 
 %description core
-A modern, cross-platform, distributed IRC client - This is quassel core server for clients.
+A modern, cross-platform, distributed IRC client - This is the quassel
+core server for clients.
 
 %files core
 %defattr(-,root,root)
 %{_bindir}/quasselcore
 
-#-------------------------------------------------------------------------------
+#-----------------------------------------------------------------------
 
 %prep
 %setup -q -n %{name}-%{version}
