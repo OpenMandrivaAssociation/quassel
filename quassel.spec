@@ -80,6 +80,7 @@ core server for clients.
 
 %build
 %cmake_qt5 \
+	-DUSE_QT5=ON \
     -DWANT_MONO=ON \
     -DWITH_KDE=OFF \
     -DEMBED_DATA=OFF
