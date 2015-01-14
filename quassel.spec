@@ -1,14 +1,18 @@
 Summary:	A modern cross-platform distributed IRC client (monolythic)
 Name:		quassel
-Version:	0.10.0
-Release:	4
+Version:	0.11.0
+Release:	1
 Group:		Networking/IRC
 License:	GPLv3
 Url:		http://quassel-irc.org/
 Source0:	http://quassel-irc.org/pub/quassel-%{version}.tar.bz2
 Source1:	networks.ini
-BuildRequires:	qt4-linguist >= 4:4.6.0
-BuildRequires:	kdelibs4-devel
+BuildRequires:	cmake
+BuildRequires:	pkgconfig(Qt5Core)
+BuildRequires:	pkgconfig(Qt5Network)
+BuildRequires:	pkgconfig(Qt5Gui)
+BuildRequires:	pkgconfig(Qt5Widgets)
+BuildRequires:	pkgconfig(Qt5DBus)
 Requires:	quassel-common = %{version}
 Provides:	kde4-irc-client
 
@@ -32,7 +36,7 @@ but also ubiquitous available.
 %package common
 Group:		Networking/IRC
 Summary:	A modern cross-platform distributed IRC client - Common files
-Requires:	qt4-database-plugin-sqlite
+Requires:	qt5-database-plugin-sqlite
 Conflicts:	quassel < 0.3.1.20090128-4
 
 %description common
@@ -79,10 +83,11 @@ core server for clients.
 %setup -q
 
 %build
-%cmake_kde4 \
+%cmake_qt5 \
     -DWANT_MONO=ON \
-    -DWITH_KDE=ON \
+    -DWITH_KDE=OFF \
     -DEMBED_DATA=OFF
+
 %make
 
 %install
