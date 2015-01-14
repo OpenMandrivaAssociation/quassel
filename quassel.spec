@@ -25,7 +25,7 @@ but also ubiquitous available.
 
 %files
 %{_bindir}/quassel
-%{_datadir}/applications/quasselclient.desktop
+%{_datadir}/applications/quassel.desktop
 #%{_kde_applicationsdir}/quassel.desktop
 
 #-----------------------------------------------------------------------
