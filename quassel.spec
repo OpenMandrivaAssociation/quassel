@@ -8,11 +8,7 @@ Url:		http://quassel-irc.org/
 Source0:	http://quassel-irc.org/pub/quassel-%{version}.tar.bz2
 Source1:	networks.ini
 BuildRequires:	cmake
-BuildRequires:	pkgconfig(Qt5Core)
-BuildRequires:	pkgconfig(Qt5Network)
-BuildRequires:	pkgconfig(Qt5Gui)
-BuildRequires:	pkgconfig(Qt5Widgets)
-BuildRequires:	pkgconfig(Qt5DBus)
+BuildRequires:	qt5-devel
 Requires:	quassel-common = %{version}
 Provides:	kde4-irc-client
 
