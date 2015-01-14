@@ -25,7 +25,8 @@ but also ubiquitous available.
 
 %files
 %{_bindir}/quassel
-%{_kde_applicationsdir}/quassel.desktop
+%{_datadir}/applications/quasselclient.desktop
+#%{_kde_applicationsdir}/quassel.desktop
 
 #-----------------------------------------------------------------------
 
@@ -40,9 +41,11 @@ A modern, cross-platform, distributed IRC client
 - This is client only, depends on a core server.
 
 %files common
+%dir %{_datadir}/apps/quassel
 %{_iconsdir}/hicolor/*/*/*
 %{_datadir}/pixmaps/%{name}.png
-%{_kde_appsdir}/quassel
+%{_datadir}/apps/quassel/*
+#%{_kde_appsdir}/quassel
 %doc AUTHORS ChangeLog README
 
 #-----------------------------------------------------------------------
@@ -57,7 +60,8 @@ A modern, cross-platform, distributed IRC client - Client only
 
 %files client
 %{_bindir}/quasselclient
-%{_kde_applicationsdir}/quasselclient.desktop
+%{_datadir}/applications/quasselclient.desktop
+#%{_kde_applicationsdir}/quasselclient.desktop
 
 #-----------------------------------------------------------------------
 
@@ -92,5 +96,5 @@ core server for clients.
 
 # Our own defined networks
 rm -f %buildroot/%_datadir/apps/quassel/networks.ini
-install -m 644 %{SOURCE1} %buildroot/%_datadir/apps/quassel/
+install -m 644 %{SOURCE1} %buildroot/%{_datadir}/apps/quassel/
 
