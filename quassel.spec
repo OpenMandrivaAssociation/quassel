@@ -1,6 +1,6 @@
 Name:       quassel
-Version:    0.9.0
-Release:    2
+Version:    0.12.2
+Release:    0.1
 Summary:    A modern cross-platform distributed IRC client (monolythic)
 Source0:    http://quassel-irc.org/pub/quassel-%{version}.tar.bz2
 Source1:    networks.ini
