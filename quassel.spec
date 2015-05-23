@@ -1,7 +1,7 @@
 Summary:	A modern cross-platform distributed IRC client (monolythic)
 Name:		quassel
 Version:	0.12.2
-Release:	2
+Release:	3
 Group:		Networking/IRC
 License:	GPLv3
 Url:		http://quassel-irc.org/
@@ -96,5 +96,6 @@ core server for clients.
 
 # Our own defined networks
 rm -f %buildroot/%_datadir/apps/quassel/networks.ini
-install -m 644 %{SOURCE1} %buildroot/%{_datadir}/apps/quassel/
+install -m 644 %{SOURCE1} %buildroot/%_datadir/apps/quassel/
+sed -i "s/<distro>/%{product_product}/" %buildroot/%_datadir/apps/quassel/networks.ini
 
