@@ -1,6 +1,6 @@
 Name:       quassel
 Version:    0.12.2
-Release:    0.1
+Release:    0.2
 Summary:    A modern cross-platform distributed IRC client (monolythic)
 Source0:    http://quassel-irc.org/pub/quassel-%{version}.tar.bz2
 Source1:    networks.ini
@@ -95,7 +95,7 @@ core server for clients.
 # Our own defined networks
 rm -f %buildroot/%_datadir/apps/quassel/networks.ini
 install -m 644 %{SOURCE1} %buildroot/%_datadir/apps/quassel/
-
+sed -i "s/<distro>/%{product_product}/" %buildroot/%_datadir/apps/quassel/networks.ini
 
 %changelog
 * Fri Apr 27 2012 Dmitry Mikhirev <dmikhirev@mandriva.org> 0.8.0-1
