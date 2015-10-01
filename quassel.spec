@@ -16,6 +16,7 @@ BuildRequires:	pkgconfig(Qt5Widgets)
 BuildRequires:	pkgconfig(Qt5Sql)
 BuildRequires:	qt5-linguist-tools
 BuildRequires:	pkgconfig(Qt5WebKit)
+BuildRequires:	pkgconfig(Qt5WebKitWidgets)
 BuildRequires:	pkgconfig(qca2-qt5)
 BuildRequires:	pkgconfig(dbusmenu-qt5)
 Requires:	quassel-common = %{version}
