@@ -14,7 +14,7 @@ BuildRequires:	pkgconfig(Qt5Network)
 BuildRequires:	pkgconfig(Qt5Gui)
 BuildRequires:	pkgconfig(Qt5Widgets)
 BuildRequires:	pkgconfig(Qt5Sql)
-BuildRequires:	pkgconfig(Qt5LinguistTools)
+BuildRequires:	qt5-linguist-tools
 BuildRequires:	pkgconfig(Qt5WebKit)
 BuildRequires:	pkgconfig(qca2-qt5)
 BuildRequires:	pkgconfig(dbusmenu-qt5)
