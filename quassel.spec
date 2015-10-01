@@ -7,6 +7,7 @@ License:	GPLv3
 Url:		http://quassel-irc.org/
 Source0:	http://quassel-irc.org/pub/quassel-%{version}.tar.bz2
 Source1:	networks.ini
+Patch0:		qt5.5-missing-incldues.patch
 BuildRequires:	cmake
 BuildRequires:	pkgconfig(Qt5Core)
 BuildRequires:	pkgconfig(Qt5Script)
@@ -91,10 +92,11 @@ core server for clients.
 
 %prep
 %setup -q
+%apply_patches
 
 %build
 %cmake_qt5 \
-	-DUSE_QT5=ON \
+    -DUSE_QT5=ON \
     -DWANT_MONO=ON \
     -DWITH_KDE=OFF \
     -DEMBED_DATA=OFF
@@ -106,6 +108,7 @@ core server for clients.
 
 # Our own defined networks
 rm -f %buildroot/%_datadir/apps/quassel/networks.ini
+mkdir -p %buildroot/%_datadir/apps/quassel/
 install -m 644 %{SOURCE1} %buildroot/%_datadir/apps/quassel/
 sed -i "s/<distro>/%{product_product}/" %buildroot/%_datadir/apps/quassel/networks.ini
 
