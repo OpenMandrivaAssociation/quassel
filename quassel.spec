@@ -56,7 +56,7 @@ A modern, cross-platform, distributed IRC client
 %{_iconsdir}/hicolor/*/*/*
 %{_datadir}/pixmaps/%{name}.png
 %{_datadir}/apps/quassel/*
-#%{_kde_appsdir}/quassel
+%{_datadir}/quassel
 %doc AUTHORS ChangeLog README
 
 #-----------------------------------------------------------------------
