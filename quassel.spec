@@ -1,13 +1,12 @@
 Summary:	A modern cross-platform distributed IRC client (monolythic)
 Name:		quassel
-Version:	0.12.2
-Release:	6
+Version:	0.12.4
+Release:	1
 Group:		Networking/IRC
 License:	GPLv3
 Url:		http://quassel-irc.org/
 Source0:	http://quassel-irc.org/pub/quassel-%{version}.tar.bz2
 Source1:	networks.ini
-Patch0:		qt5.5-missing-incldues.patch
 BuildRequires:	cmake
 BuildRequires:	pkgconfig(Qt5Core)
 BuildRequires:	pkgconfig(Qt5Script)
