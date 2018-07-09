@@ -1,2 +1,4 @@
+removed_sources:
+  quassel-0.12.4.tar.bz2: 0976e6c08a73d4138c7e09eba8975746562c6b76
 sources:
   quassel-0.12.5.tar.bz2: ad30d49ab670ba8927e0e0caa8ac36b29f08bd0d
