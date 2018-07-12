@@ -1,7 +1,7 @@
 Summary:	A modern cross-platform distributed IRC client (monolythic)
 Name:		quassel
 Version:	0.12.5
-Release:	1
+Release:	2
 Group:		Networking/IRC
 License:	GPLv3
 Url:		http://quassel-irc.org/
@@ -15,10 +15,19 @@ BuildRequires:	pkgconfig(Qt5Gui)
 BuildRequires:	pkgconfig(Qt5Widgets)
 BuildRequires:	pkgconfig(Qt5Sql)
 BuildRequires:	qt5-linguist-tools
-BuildRequires:	pkgconfig(Qt5WebKit)
-BuildRequires:	pkgconfig(Qt5WebKitWidgets)
+BuildRequires:	pkgconfig(Qt5WebEngine)
+BuildRequires:	pkgconfig(Qt5WebEngineWidgets)
 BuildRequires:	pkgconfig(qca2-qt5)
 BuildRequires:	pkgconfig(dbusmenu-qt5)
+BuildRequires:	cmake(ECM)
+BuildRequires:  cmake(KF5ConfigWidgets)
+BuildRequires:  cmake(KF5CoreAddons)
+BuildRequires:  cmake(KF5Notifications)
+BuildRequires:  cmake(KF5NotifyConfig)
+BuildRequires:  cmake(KF5TextWidgets)
+BuildRequires:  cmake(KF5WidgetsAddons)
+BuildRequires:  cmake(KF5XmlGui)
+
 Requires:	quassel-common = %{version}
 Provides:	kde4-irc-client
 
@@ -36,7 +45,6 @@ but also ubiquitous available.
 %files
 %{_bindir}/quassel
 %{_datadir}/applications/quassel.desktop
-#%{_kde_applicationsdir}/quassel.desktop
 
 #-----------------------------------------------------------------------
 
@@ -56,6 +64,8 @@ A modern, cross-platform, distributed IRC client
 %{_datadir}/pixmaps/%{name}.png
 %{_datadir}/apps/quassel/*
 %{_datadir}/quassel
+%{_datadir}/knotifications5/quassel.notifyrc
+
 %doc AUTHORS ChangeLog README.md
 
 #-----------------------------------------------------------------------
@@ -71,7 +81,6 @@ A modern, cross-platform, distributed IRC client - Client only
 %files client
 %{_bindir}/quasselclient
 %{_datadir}/applications/quasselclient.desktop
-#%{_kde_applicationsdir}/quasselclient.desktop
 
 #-----------------------------------------------------------------------
 
@@ -97,7 +106,7 @@ core server for clients.
 %cmake_qt5 \
     -DUSE_QT5=ON \
     -DWANT_MONO=ON \
-    -DWITH_KDE=OFF \
+    -DWITH_KDE=ON \
     -DEMBED_DATA=OFF
 
 %make
