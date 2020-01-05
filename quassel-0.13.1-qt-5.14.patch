@@ -1,0 +1,32 @@
+diff -up quassel-0.13.1/src/common/dccconfig.cpp.omv~ quassel-0.13.1/src/common/dccconfig.cpp
+diff -up quassel-0.13.1/src/common/dccconfig.h.omv~ quassel-0.13.1/src/common/dccconfig.h
+--- quassel-0.13.1/src/common/dccconfig.h.omv~	2020-01-05 15:22:34.350593877 +0100
++++ quassel-0.13.1/src/common/dccconfig.h	2020-01-05 15:26:40.329581943 +0100
+@@ -149,3 +149,27 @@ private:
+     bool _usePassiveDcc                  {false};
+     bool _useFastSend                    {false};
+ };
++
++inline QDataStream &operator >>(QDataStream &in, DccConfig::IpDetectionMode &val) {
++	quint8 tmp;
++	in >> tmp;
++	val = static_cast<DccConfig::IpDetectionMode>(tmp);
++	return in;
++}
++
++inline QDataStream &operator >>(QDataStream &in, DccConfig::PortSelectionMode &val) {
++	quint8 tmp;
++	in >> tmp;
++	val = static_cast<DccConfig::PortSelectionMode>(tmp);
++	return in;
++}
++
++inline QDataStream &operator <<(QDataStream &out, DccConfig::IpDetectionMode const &val) {
++	out << static_cast<quint8>(val);
++	return out;
++}
++
++inline QDataStream &operator <<(QDataStream &out, DccConfig::PortSelectionMode const &val) {
++	out << static_cast<quint8>(val);
++	return out;
++}

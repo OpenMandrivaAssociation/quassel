@@ -7,6 +7,7 @@ License:	GPLv3
 Url:		http://quassel-irc.org/
 Source0:	http://quassel-irc.org/pub/quassel-%{version}.tar.bz2
 Source1:	networks.ini
+Patch0:		quassel-0.13.1-qt-5.14.patch
 BuildRequires:	cmake
 BuildRequires:	pkgconfig(Qt5Core)
 BuildRequires:	pkgconfig(Qt5Script)
