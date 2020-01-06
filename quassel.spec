@@ -1,14 +1,13 @@
 Summary:	A modern cross-platform distributed IRC client (monolythic)
 Name:		quassel
 Version:	0.13.1
-Release:	3
+Release:	4
 Group:		Networking/IRC
 License:	GPLv3
 Url:		http://quassel-irc.org/
 Source0:	http://quassel-irc.org/pub/quassel-%{version}.tar.bz2
-Source1:	networks.ini
 Patch0:		quassel-0.13.1-qt-5.14.patch
-BuildRequires:	cmake
+BuildRequires:	cmake ninja
 BuildRequires:	pkgconfig(Qt5Core)
 BuildRequires:	pkgconfig(Qt5Script)
 BuildRequires:	pkgconfig(Qt5Network)
@@ -61,10 +60,8 @@ A modern, cross-platform, distributed IRC client
 - This is client only, depends on a core server.
 
 %files common
-%dir %{_datadir}/apps/quassel
 %{_iconsdir}/hicolor/*/*/*
 %{_datadir}/pixmaps/%{name}.png
-%{_datadir}/apps/quassel/*
 %{_datadir}/quassel
 %{_datadir}/knotifications5/quassel.notifyrc
 
@@ -104,21 +101,18 @@ core server for clients.
 %setup -q
 %autopatch -p1
 
+# Join our channels by default
+sed -i "s/^DefaultChannels=.*/DefaultChannels=#openmandriva,#openmandriva-cooker/g" data/networks.ini
+
 %build
 %cmake_qt5 \
-    -DUSE_QT5=ON \
-    -DWANT_MONO=ON \
-    -DWITH_KDE=ON \
-    -DEMBED_DATA=OFF
+	-DUSE_QT5=ON \
+	-DWANT_MONO=ON \
+	-DWITH_KDE=ON \
+	-DEMBED_DATA=OFF \
+	-G Ninja
 
-%make
+%ninja_build
 
 %install
-%makeinstall_std -C build
-
-# Our own defined networks
-rm -f %buildroot/%_datadir/apps/quassel/networks.ini
-mkdir -p %buildroot/%_datadir/apps/quassel/
-install -m 644 %{SOURCE1} %buildroot/%_datadir/apps/quassel/
-sed -i "s/<distro>/%{product_product}/" %buildroot/%_datadir/apps/quassel/networks.ini
-
+%ninja_install -C build
