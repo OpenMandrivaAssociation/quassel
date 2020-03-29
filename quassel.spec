@@ -1,7 +1,7 @@
 Summary:	A modern cross-platform distributed IRC client (monolythic)
 Name:		quassel
 Version:	0.13.1
-Release:	6
+Release:	7
 Group:		Networking/IRC
 License:	GPLv3
 Url:		http://quassel-irc.org/
@@ -53,6 +53,8 @@ but also ubiquitous available.
 Group:		Networking/IRC
 Summary:	A modern cross-platform distributed IRC client - Common files
 Requires:	qt5-database-plugin-sqlite
+Recommends:     inxi-quassel
+
 Conflicts:	quassel < 0.3.1.20090128-4
 
 %description common
@@ -116,3 +118,6 @@ sed -i "s/^DefaultChannels=.*/DefaultChannels=#openmandriva,#openmandriva-cooker
 
 %install
 %ninja_install -C build
+
+# Lets fix this mess. Fix conflict with inxi package.
+rm -f %{buildroot}%{_datadir}/%{name}/scripts/inxi
