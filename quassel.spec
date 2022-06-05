@@ -1,7 +1,7 @@
 Summary:	A modern cross-platform distributed IRC client (monolythic)
 Name:		quassel
 Version:	0.13.1
-Release:	8
+Release:	9
 Group:		Networking/IRC
 License:	GPLv3
 Url:		http://quassel-irc.org/
