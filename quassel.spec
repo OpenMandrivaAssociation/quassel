@@ -27,6 +27,7 @@ BuildRequires:  cmake(KF5NotifyConfig)
 BuildRequires:  cmake(KF5TextWidgets)
 BuildRequires:  cmake(KF5WidgetsAddons)
 BuildRequires:  cmake(KF5XmlGui)
+BuildRequires:	boost-devel
 
 Requires:	quassel-common = %{version}
 Provides:	kde4-irc-client
