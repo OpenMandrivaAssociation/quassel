@@ -4,7 +4,7 @@ Version:	0.14.0
 Release:	1
 Group:		Networking/IRC
 License:	GPLv3
-Url:		http://quassel-irc.org/
+Url:		https://quassel-irc.org/
 Source0:	http://quassel-irc.org/pub/quassel-%{version}.tar.bz2
 BuildRequires:	cmake ninja
 BuildRequires:	pkgconfig(Qt5Core)
